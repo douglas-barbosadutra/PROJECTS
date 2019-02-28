@@ -1,4 +1,4 @@
-package com.managementtool.contrader.projects.service;
+/*package com.managementtool.contrader.projects.service;
 
 import com.managementtool.contrader.projects.domain.Project;
 
@@ -10,7 +10,7 @@ import java.util.Optional;
 /**
  * Service Interface for managing Project.
  */
-public interface ProjectService {
+/*public interface ProjectService {
 
     /**
      * Save a project.
@@ -18,7 +18,7 @@ public interface ProjectService {
      * @param project the entity to save
      * @return the persisted entity
      */
-    Project save(Project project);
+ /*   Project save(Project project);
 
     /**
      * Get all the projects.
@@ -26,7 +26,7 @@ public interface ProjectService {
      * @param pageable the pagination information
      * @return the list of entities
      */
-    Page<Project> findAll(Pageable pageable);
+  /*  Page<Project> findAll(Pageable pageable);
 
 
     /**
@@ -35,12 +35,12 @@ public interface ProjectService {
      * @param id the id of the entity
      * @return the entity
      */
-    Optional<Project> findOne(Long id);
+ /*   Optional<Project> findOne(Long id);
 
     /**
      * Delete the "id" project.
      *
      * @param id the id of the entity
      */
-    void delete(Long id);
-}
+  /*  void delete(Long id);
+}*/

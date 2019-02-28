@@ -1,10 +1,18 @@
+/*<<<<<<< Updated upstream:src/main/java/com/managementtool/contrader/projects/service/dto/NewProjectDTO.java
 package com.managementtool.contrader.projects.service.dto;
+=======
+package com.managementtool.contrader.projects.dto;
+
+>>>>>>> Stashed changes:src/main/java/com/managementtool/contrader/projects/dto/NewProjectDTO.java
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.managementtool.contrader.projects.domain.Person;
 import com.managementtool.contrader.projects.domain.Program;
 import com.managementtool.contrader.projects.domain.Task;
+<<<<<<< Updated upstream:src/main/java/com/managementtool/contrader/projects/service/dto/NewProjectDTO.java
 
+=======
+>>>>>>> Stashed changes:src/main/java/com/managementtool/contrader/projects/dto/NewProjectDTO.java
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.Set;
@@ -201,4 +209,4 @@ public class NewProjectDTO implements Serializable {
 			", file='" + getFile().getOriginalFilename() + "'" +
             "}";
     }
-}
+}*/

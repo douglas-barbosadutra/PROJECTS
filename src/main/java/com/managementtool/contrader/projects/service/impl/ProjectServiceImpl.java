@@ -1,4 +1,4 @@
-package com.managementtool.contrader.projects.service.impl;
+/*package com.managementtool.contrader.projects.service.impl;
 
 import com.managementtool.contrader.projects.service.ProjectService;
 import com.managementtool.contrader.projects.domain.Project;
@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * Service Implementation for managing Project.
  */
-@Service
+/*@Service
 @Transactional
 public class ProjectServiceImpl implements ProjectService {
 
@@ -34,7 +34,7 @@ public class ProjectServiceImpl implements ProjectService {
      * @param project the entity to save
      * @return the persisted entity
      */
-    @Override
+  /*  @Override
     public Project save(Project project) {
         log.debug("Request to save Project : {}", project);        return projectRepository.save(project);
     }
@@ -45,7 +45,7 @@ public class ProjectServiceImpl implements ProjectService {
      * @param pageable the pagination information
      * @return the list of entities
      */
-    @Override
+ /*   @Override
     @Transactional(readOnly = true)
     public Page<Project> findAll(Pageable pageable) {
         log.debug("Request to get all Projects");
@@ -59,7 +59,7 @@ public class ProjectServiceImpl implements ProjectService {
      * @param id the id of the entity
      * @return the entity
      */
-    @Override
+   /* @Override
     @Transactional(readOnly = true)
     public Optional<Project> findOne(Long id) {
         log.debug("Request to get Project : {}", id);
@@ -71,9 +71,9 @@ public class ProjectServiceImpl implements ProjectService {
      *
      * @param id the id of the entity
      */
-    @Override
+   /* @Override
     public void delete(Long id) {
         log.debug("Request to delete Project : {}", id);
         projectRepository.deleteById(id);
     }
-}
+}*/
