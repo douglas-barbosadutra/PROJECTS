@@ -1,9 +1,10 @@
-package com.managementtool.contrader.service.dto;
+package com.managementtool.contrader.projects.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.managementtool.contrader.domain.Person;
-import com.managementtool.contrader.domain.Program;
-import com.managementtool.contrader.domain.Task;
+import com.managementtool.contrader.projects.domain.Person;
+import com.managementtool.contrader.projects.domain.Program;
+import com.managementtool.contrader.projects.domain.Task;
+
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.Set;
@@ -19,7 +20,7 @@ public class NewProjectDTO implements Serializable {
 	private Float addedValue;
 	private ZonedDateTime endDate;
 	private ZonedDateTime nextCriticalDate;
-	private Program program;
+	private com.managementtool.contrader.projects.domain.Program program;
 	private Person headPerson;
 	@JsonIgnoreProperties({"project"})
 	private Set<Task> tasks;

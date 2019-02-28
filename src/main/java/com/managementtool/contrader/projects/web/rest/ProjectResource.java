@@ -1,4 +1,4 @@
-package com.managementtool.contrader.web.rest;
+/*package com.managementtool.contrader.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,10 +35,10 @@ import java.util.Optional;
 import java.util.Set;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
+///**
  * REST controller for managing Project.
  */
-@RestController
+/*@RestController
 @RequestMapping("/api")
 public class ProjectResource {
 
@@ -73,7 +73,7 @@ public class ProjectResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
 	 * @throws IOException if file saving fails
      */
-    @PostMapping("/projects")
+  /*  @PostMapping("/projects")
     @Timed
     public ResponseEntity<Project> createProject(@RequestParam(value = "file", required = false) MultipartFile f, @RequestParam("project") String p) throws URISyntaxException, IOException {
         log.debug("REST request to save Project : {}", p);
@@ -125,7 +125,7 @@ public class ProjectResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
 	 * @throws IOException if there was an error saving the file
      */
-    @PostMapping("/projects/edit")
+   /* @PostMapping("/projects/edit")
     @Timed
     public ResponseEntity<Project> updateProject(@RequestParam(value = "file", required = false) MultipartFile f, @RequestParam("project") String p) throws URISyntaxException, IOException {
         log.debug("REST request to update Project : {}", p);
@@ -214,7 +214,7 @@ public class ProjectResource {
      * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of projects in body
      */
-    @GetMapping("/projects")
+  /*  @GetMapping("/projects")
     @Timed
     public ResponseEntity<List<Project>> getAllProjects(Pageable pageable) {
         log.debug("REST request to get a page of Projects");
@@ -258,7 +258,7 @@ public class ProjectResource {
      * @param id the id of the project to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the project, or with status 404 (Not Found)
      */
-    @GetMapping("/projects/{id}")
+  /*  @GetMapping("/projects/{id}")
     @Timed
     public ResponseEntity<Project> getProject(@PathVariable Long id) {
         log.debug("REST request to get Project : {}", id);
@@ -282,7 +282,7 @@ public class ProjectResource {
      * @param id the id of the project to delete
      * @return the ResponseEntity with status 200 (OK)
      */
-    @DeleteMapping("/projects/{id}")
+  /*  @DeleteMapping("/projects/{id}")
     @Timed
     public ResponseEntity<Void> deleteProject(@PathVariable Long id) {
         log.debug("REST request to delete Project : {}", id);
@@ -344,7 +344,7 @@ public class ProjectResource {
 	 * 
 	 * @return data
 	 */
-	@GetMapping("/projects/data")
+	/*@GetMapping("/projects/data")
 	@Timed
 	public ResponseEntity<DataModel> getData() {
 		DataModel data = new DataModel();
@@ -354,4 +354,4 @@ public class ProjectResource {
 		
 		return ResponseEntity.ok(data);
 	}
-}
+}*/

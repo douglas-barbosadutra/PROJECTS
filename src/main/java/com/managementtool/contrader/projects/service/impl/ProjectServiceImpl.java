@@ -1,8 +1,8 @@
-package com.managementtool.contrader.service.impl;
+package com.managementtool.contrader.projects.service.impl;
 
-import com.managementtool.contrader.service.ProjectService;
-import com.managementtool.contrader.domain.Project;
-import com.managementtool.contrader.repository.ProjectRepository;
+import com.managementtool.contrader.projects.service.ProjectService;
+import com.managementtool.contrader.projects.domain.Project;
+import com.managementtool.contrader.projects.repository.ProjectRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

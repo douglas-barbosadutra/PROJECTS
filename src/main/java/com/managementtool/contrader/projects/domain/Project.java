@@ -1,4 +1,4 @@
-package com.managementtool.contrader.domain;
+package com.managementtool.contrader.projects.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;

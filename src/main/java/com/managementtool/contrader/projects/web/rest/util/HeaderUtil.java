@@ -1,4 +1,4 @@
-package com.managementtool.contrader.web.rest.util;
+package com.managementtool.contrader.projects.web.rest.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

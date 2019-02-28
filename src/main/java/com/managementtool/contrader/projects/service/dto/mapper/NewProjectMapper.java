@@ -1,7 +1,7 @@
-package com.managementtool.contrader.service.dto.mapper;
+package com.managementtool.contrader.projects.service.dto.mapper;
 
-import com.managementtool.contrader.domain.Project;
-import com.managementtool.contrader.service.dto.NewProjectDTO;
+import com.managementtool.contrader.projects.domain.Project;
+import com.managementtool.contrader.projects.service.dto.NewProjectDTO;
 
 public class NewProjectMapper {
 	static public Project toProject(NewProjectDTO p) {

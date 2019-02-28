@@ -1,4 +1,4 @@
-package com.managementtool.contrader.domain;
+package com.managementtool.contrader.projects.domain;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;

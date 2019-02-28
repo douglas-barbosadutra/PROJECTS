@@ -1,4 +1,4 @@
-package com.managementtool.contrader.web.rest.util;
+package com.managementtool.contrader.projects.web.rest.util;
 
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
