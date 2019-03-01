@@ -28,7 +28,7 @@ import com.managementtool.contrader.projects.service.FileService;
 /* REST controller for managing File.
 */
  @RestController
- @RequestMapping("/api")
+ @RequestMapping("/File")
  public class FileResource {
 	
 	 private FileService fileService;

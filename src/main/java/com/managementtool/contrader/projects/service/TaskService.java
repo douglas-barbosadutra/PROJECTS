@@ -1,8 +1,7 @@
 package com.managementtool.contrader.projects.service;
 
-import com.managementtool.contrader.projects.domain.File;
-import com.managementtool.contrader.projects.dto.NewFileDTO;
-import com.managementtool.contrader.projects.dto.NewProgramDTO;
+import com.managementtool.contrader.projects.domain.Task;
+import com.managementtool.contrader.projects.dto.TaskDTO;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,37 +10,37 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Service Interface for managing File.
+ * Service Interface for managing Program.
  */
-public interface FileService {
+public interface TaskService {
 
     /**
-     * Save a file.
+     * Save a task.
      *
-     * @param file the entity to save
+     * @param task the entity to save
      * @return the persisted entity
      */
-    NewFileDTO save(NewFileDTO newfileDTO);
+    TaskDTO save(TaskDTO taskDTO);
 
     /**
-     * Get all the file.
+     * Get all the task.
      *
      * @param pageable the pagination information
      * @return the list of entities
      */
-    List<NewFileDTO> getAll();
+    List<TaskDTO> getAll();
 
 
     /**
-     * Get the "id" file.
+     * Get the "id" task.
      *
      * @param id the id of the entity
      * @return the entity
      */
-    NewFileDTO findOne(Long id);
+    TaskDTO findOne(Long id);
 
     /**
-     * Delete the "id" file.
+     * Delete the "id" task.
      *
      * @param id the id of the entity
      */

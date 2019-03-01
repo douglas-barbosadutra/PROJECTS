@@ -77,7 +77,7 @@ public class FileServiceImpl implements FileService {
         return newfileDTO;
     }
     /**
-     * Delete the program by id.
+     * Delete the file by id.
      *
      * @param id the id of the entity
      */

@@ -25,10 +25,10 @@ import com.managementtool.contrader.projects.service.ProgramService;
 //import com.managementtool.contrader.projects.service.ProjectService;
 
 /**
-/* REST controller for managing File.
+/* REST controller for managing program.
 */
  @RestController
- @RequestMapping("/api")
+ @RequestMapping("/Program")
  public class ProgramResource {
 	
 	 private ProgramService programService;
