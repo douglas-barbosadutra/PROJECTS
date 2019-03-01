@@ -1,27 +1,22 @@
-/*<<<<<<< Updated upstream:src/main/java/com/managementtool/contrader/projects/service/dto/NewProjectDTO.java
-package com.managementtool.contrader.projects.service.dto;
-=======
 package com.managementtool.contrader.projects.dto;
 
->>>>>>> Stashed changes:src/main/java/com/managementtool/contrader/projects/dto/NewProjectDTO.java
+import java.io.Serializable;
+import java.time.ZonedDateTime;
+import java.util.Objects;
+import java.util.Set;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.managementtool.contrader.projects.domain.File;
 import com.managementtool.contrader.projects.domain.Person;
 import com.managementtool.contrader.projects.domain.Program;
 import com.managementtool.contrader.projects.domain.Task;
-<<<<<<< Updated upstream:src/main/java/com/managementtool/contrader/projects/service/dto/NewProjectDTO.java
 
-=======
->>>>>>> Stashed changes:src/main/java/com/managementtool/contrader/projects/dto/NewProjectDTO.java
-import java.io.Serializable;
-import java.time.ZonedDateTime;
-import java.util.Set;
-import org.springframework.web.multipart.MultipartFile;
-import java.util.Objects;
 
 public class NewProjectDTO implements Serializable {
 	private Long id;
-	private MultipartFile file;
+	private File file;
 	private String name;
 	private String link;
 	private String description;
@@ -32,7 +27,16 @@ public class NewProjectDTO implements Serializable {
 	private Person headPerson;
 	@JsonIgnoreProperties({"project"})
 	private Set<Task> tasks;
-	
+	private String status;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public Person getHeadPerson() {
 		return headPerson;
 	}
@@ -150,16 +154,21 @@ public class NewProjectDTO implements Serializable {
 		return this;
 	}
 	
-	public MultipartFile getFile() {
+	public File getFile() {
 		return file;
 	}
-
-	public void setFile(MultipartFile file) {
+	
+//	public void setFile(MultipartFile file) {
+	public void setFile(File file) {
 		this.file = file;
 	}
 
-	public NewProjectDTO file(MultipartFile file) {
+	public NewProjectDTO file(File file) {
 		this.file = file;
+		return this;
+	}
+	public NewProjectDTO status(String status) {
+		this.status = status;
 		return this;
 	}
 	
@@ -206,7 +215,7 @@ public class NewProjectDTO implements Serializable {
             ", addedValue=" + getAddedValue() +
             ", endDate='" + getEndDate() + "'" +
             ", nextCriticalDate='" + getNextCriticalDate() + "'" +
-			", file='" + getFile().getOriginalFilename() + "'" +
+			", file='" + getFile().getName() + "'" +
             "}";
     }
-}*/
+}

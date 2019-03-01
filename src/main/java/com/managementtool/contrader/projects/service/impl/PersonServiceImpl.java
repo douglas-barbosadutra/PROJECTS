@@ -14,8 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.managementtool.contrader.projects.domain.Person;
 import com.managementtool.contrader.projects.repository.PersonRepository;
 import com.managementtool.contrader.projects.service.PersonService;
-import com.managementtool.contrader.projects.service.dto.PersonDTO;
+import com.managementtool.contrader.projects.dto.PersonDTO;
 import com.managementtool.contrader.projects.service.dto.mapper.PersonMapper;
+
 
 
 

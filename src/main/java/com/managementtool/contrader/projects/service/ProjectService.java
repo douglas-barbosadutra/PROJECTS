@@ -1,16 +1,18 @@
-/*package com.managementtool.contrader.projects.service;
+package com.managementtool.contrader.projects.service;
 
-import com.managementtool.contrader.projects.domain.Project;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.managementtool.contrader.projects.dto.NewProjectDTO;
 
-import java.util.Optional;
+
+
+
+import java.util.List;
+
 
 /**
  * Service Interface for managing Project.
  */
-/*public interface ProjectService {
+public interface ProjectService {
 
     /**
      * Save a project.
@@ -18,7 +20,7 @@ import java.util.Optional;
      * @param project the entity to save
      * @return the persisted entity
      */
- /*   Project save(Project project);
+  NewProjectDTO save(NewProjectDTO NewprojectDTO);
 
     /**
      * Get all the projects.
@@ -26,7 +28,7 @@ import java.util.Optional;
      * @param pageable the pagination information
      * @return the list of entities
      */
-  /*  Page<Project> findAll(Pageable pageable);
+  List<NewProjectDTO> findAll();
 
 
     /**
@@ -35,12 +37,12 @@ import java.util.Optional;
      * @param id the id of the entity
      * @return the entity
      */
- /*   Optional<Project> findOne(Long id);
+    NewProjectDTO findOne(Long id);
 
     /**
      * Delete the "id" project.
      *
      * @param id the id of the entity
      */
-  /*  void delete(Long id);
-}*/
+    void delete(Long id);
+}

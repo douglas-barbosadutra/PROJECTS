@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.managementtool.contrader.projects.service.PersonService;
-import com.managementtool.contrader.projects.service.dto.PersonDTO;
+import com.managementtool.contrader.projects.dto.PersonDTO;
 
 
 

@@ -1,4 +1,5 @@
 package com.managementtool.contrader.projects.service;
+import com.managementtool.contrader.projects.dto.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 
 import com.managementtool.contrader.projects.domain.Person;
 import com.managementtool.contrader.projects.domain.Project;
-import com.managementtool.contrader.projects.service.dto.PersonDTO;
+
 
 public interface PersonService {
 	/**

@@ -1,22 +1,21 @@
-/*package com.managementtool.contrader.projects.service.impl;
+package com.managementtool.contrader.projects.service.impl;
 
 import com.managementtool.contrader.projects.service.ProjectService;
+import com.managementtool.contrader.projects.service.dto.mapper.NewProjectMapper;
 import com.managementtool.contrader.projects.domain.Project;
+import com.managementtool.contrader.projects.dto.NewProjectDTO;
 import com.managementtool.contrader.projects.repository.ProjectRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
-
-import java.util.Optional;
 /**
  * Service Implementation for managing Project.
  */
-/*@Service
+@Service
 @Transactional
 public class ProjectServiceImpl implements ProjectService {
 
@@ -25,8 +24,7 @@ public class ProjectServiceImpl implements ProjectService {
     private final ProjectRepository projectRepository;
 
     public ProjectServiceImpl(ProjectRepository projectRepository) {
-        this.projectRepository = projectRepository;
-    }
+        this.projectRepository = projectRepository; }
 
     /**
      * Save a project.
@@ -34,46 +32,33 @@ public class ProjectServiceImpl implements ProjectService {
      * @param project the entity to save
      * @return the persisted entity
      */
-  /*  @Override
-    public Project save(Project project) {
-        log.debug("Request to save Project : {}", project);        return projectRepository.save(project);
-    }
+  @Override
+    public NewProjectDTO save(NewProjectDTO NewProjectDTO) {
+	  Project project = NewProjectMapper.convertToProject(NewProjectDTO);
+		 this.projectRepository.save(project);
+		 return NewProjectMapper.convertToDto(projectRepository.save(project));
+	}
 
-    /**
-     * Get all the projects.
-     *
-     * @param pageable the pagination information
-     * @return the list of entities
-     */
- /*   @Override
+   @Override
     @Transactional(readOnly = true)
-    public Page<Project> findAll(Pageable pageable) {
-        log.debug("Request to get all Projects");
-        return projectRepository.findAll(pageable);
+
+  public List<NewProjectDTO> findAll() {
+	   List<Project> listaProject = (List<Project>) projectRepository.findAll();
+		List<NewProjectDTO> ProjectPerProject= new ArrayList<>();
+		listaProject.forEach(i->ProjectPerProject.add(NewProjectMapper.convertToDto(i)));
+		return ProjectPerProject;
     }
 
-
-    /**
-     * Get one project by id.
-     *
-     * @param id the id of the entity
-     * @return the entity
-     */
-   /* @Override
+   @Override
     @Transactional(readOnly = true)
-    public Optional<Project> findOne(Long id) {
-        log.debug("Request to get Project : {}", id);
-        return projectRepository.findById(id);
+    public  NewProjectDTO findOne(Long id) {
+	   NewProjectDTO projectDTO = NewProjectMapper.convertToDto(projectRepository.findById(id).get());
+       return  projectDTO;
     }
 
-    /**
-     * Delete the project by id.
-     *
-     * @param id the id of the entity
-     */
-   /* @Override
+    @Override
     public void delete(Long id) {
-        log.debug("Request to delete Project : {}", id);
+       // log.debug("Request to delete Project : {}", id);
         projectRepository.deleteById(id);
     }
-}*/
+}

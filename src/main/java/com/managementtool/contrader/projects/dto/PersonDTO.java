@@ -1,4 +1,4 @@
-package com.managementtool.contrader.projects.service.dto;
+package com.managementtool.contrader.projects.dto;
 
 import java.io.Serializable;
 import java.util.Objects;

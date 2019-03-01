@@ -1,9 +1,4 @@
-/*package com.managementtool.contrader.projects.service.dto.mapper;
-
-
-import com.managementtool.contrader.projects.domain.Project;
-import com.managementtool.contrader.projects.service.dto.NewProjectDTO;
-=======
+package com.managementtool.contrader.projects.service.dto.mapper;
 
 
 import com.managementtool.contrader.projects.domain.Project;
@@ -12,7 +7,7 @@ import com.managementtool.contrader.projects.dto.NewProjectDTO;
 
 
 public class NewProjectMapper {
-	static public Project toProject(NewProjectDTO p) {
+	static public Project convertToProject(NewProjectDTO p) {
 		Project project = new Project();
 		project.setId(p.getId());
 		project.setName(p.getName());
@@ -24,10 +19,12 @@ public class NewProjectMapper {
 		project.setLink(p.getLink());
 		project.setNextCriticalDate(p.getNextCriticalDate());
 		project.setProgram(p.getProgram());
+		project.setFile(p.getFile());
+		project.setStatus(p.getStatus());
 		return project;
 	}
 	
-	static public NewProjectDTO toDto(Project p) {
+	static public NewProjectDTO convertToDto(Project p) {
 		NewProjectDTO newprojectDTO = new NewProjectDTO();
 		newprojectDTO.setId(p.getId());
 		newprojectDTO.setName(p.getName());
@@ -39,8 +36,8 @@ public class NewProjectMapper {
 		newprojectDTO.link(p.getLink());
 		newprojectDTO.nextCriticalDate(p.getNextCriticalDate());
 		newprojectDTO.program(p.getProgram());
-		
-		
+		newprojectDTO.file(p.getFile());
+		newprojectDTO.status(p.getStatus());
 		return newprojectDTO;
 	}
-}*/
+}
