@@ -18,10 +18,10 @@ public interface FileService {
     /**
      * Save a file.
      *
-     * @param program the entity to save
+     * @param file the entity to save
      * @return the persisted entity
      */
-    File save(File file);
+    NewFileDTO save(NewFileDTO newfileDTO);
 
     /**
      * Get all the file.
@@ -38,7 +38,7 @@ public interface FileService {
      * @param id the id of the entity
      * @return the entity
      */
-    Optional<File> findOne(Long id);
+    NewFileDTO findOne(Long id);
 
     /**
      * Delete the "id" file.

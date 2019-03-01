@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.managementtool.contrader.projects.domain.File;
 import com.managementtool.contrader.projects.dto.NewFileDTO;
-import com.managementtool.contrader.projects.dto.NewProgramDTO;
-//import com.managementtool.contrader.projects.domain.Project;
+
 import com.managementtool.contrader.projects.web.rest.util.PaginationUtil;
 import com.managementtool.contrader.projects.service.FileService;
-//import com.managementtool.contrader.projects.service.ProjectService;
-import com.managementtool.contrader.projects.service.ProgramService;
+
+
 
 /**
 /* REST controller for managing File.
@@ -45,9 +45,50 @@ import com.managementtool.contrader.projects.service.ProgramService;
 			List<NewFileDTO> file = fileService.getAll();
 			return file;
 		}
+		
+
+		 @CrossOrigin
+			@RequestMapping(value="/deleteFile", method = RequestMethod.GET)
+			public boolean delete(@RequestParam(value="id") Long id) {
+				fileService.delete(id);
+				return true;
+	}
+		
+		
+		 @RequestMapping(value = "/saveFile", method = RequestMethod.POST)
+			@CrossOrigin
+			public  NewFileDTO  newfile(
+				@RequestParam(value="name") String name,
+				@RequestParam(value="mime") String mime,
+				@RequestParam(value="url") String url,
+				@RequestParam(value="jhi_size") Long size) {
+				
+				NewFileDTO newfileDTO = new NewFileDTO();
+				newfileDTO.setName(name);
+				newfileDTO.setMime(mime);
+				newfileDTO.setUrl(url);
+				newfileDTO.setSize(size);
+				fileService.save(newfileDTO);
+				return newfileDTO;
+			}
 	
+		 @CrossOrigin
+		 @RequestMapping (value ="/updateFile", method= RequestMethod.POST)
+		 public NewFileDTO update (
+				 @RequestParam(value = "id") Long id,
+				 @RequestParam(value="name") String name,
+				 @RequestParam(value="mime") String mime,
+				 @RequestParam(value="url") String url,
+				 @RequestParam(value="jhi_size") Long size
+				 ) {
+			 NewFileDTO newfileDTO = fileService.findOne(id);
+			 newfileDTO.setName(name);
+			 newfileDTO.setMime(mime);
+			 newfileDTO.setUrl(url);
+			 newfileDTO.setSize(size);
+			 fileService.save(newfileDTO);
+			return newfileDTO ; 
+		 }
 	
-	
-	
-	
+ 
 }

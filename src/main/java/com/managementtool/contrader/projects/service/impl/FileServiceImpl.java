@@ -37,12 +37,15 @@ public class FileServiceImpl implements FileService {
     /**
      * Save a file.
      *
-     * @param program the entity to save
+     * @param file the entity to save
      * @return the persisted entity
      */
     @Override
-    public File save(File file) {
-        log.debug("Request to save File : {}", file);        return fileRepository.save(file);
+    public NewFileDTO save(NewFileDTO newfileDTO) {
+        log.debug("Request to save File : {}", newfileDTO);    
+       File file = NewFileMapper.toFile(newfileDTO);
+        this.fileRepository.save(file);
+        return NewFileMapper.toDto(fileRepository.save(file));
     }
 
     /**
@@ -68,19 +71,20 @@ public class FileServiceImpl implements FileService {
      */
     @Override
     @Transactional(readOnly = true)
-    public Optional<File> findOne(Long id) {
+    public NewFileDTO findOne(Long id) {
         log.debug("Request to get File : {}", id);
-        return fileRepository.findById(id);
+        NewFileDTO newfileDTO= NewFileMapper.toDto(fileRepository.findById(id).get());
+        return newfileDTO;
     }
-
     /**
      * Delete the program by id.
      *
      * @param id the id of the entity
      */
     @Override
-    public void delete(Long id) {
-        log.debug("Request to delete File : {}", id);
-        fileRepository.deleteById(id);
+    public void delete (Long id) {
+    	log.debug("Request to delete File : {}", id);
+    	File file = fileRepository.findById(id).get();
+    	this.fileRepository.delete(file);   	 
     }
 }
