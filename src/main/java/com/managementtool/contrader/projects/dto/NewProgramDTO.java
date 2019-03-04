@@ -13,6 +13,17 @@ public class NewProgramDTO implements Serializable {
 	private String name;
 	
 	
+	 public NewProgramDTO() {
+
+	 }
+	 
+	 public NewProgramDTO(long id,String name) {
+			this.id = id;
+			this.name = name;
+			
+		}
+
+	
 	public Long getId() {
         return id;
     }

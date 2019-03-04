@@ -1,11 +1,13 @@
 package com.managementtool.contrader.web.rest;
 
-import com.managementtool.contrader.ProjectsApp;
+//import com.managementtool.contrader.ProjectsApp;
 
-import com.managementtool.contrader.domain.Person;
-import com.managementtool.contrader.repository.PersonRepository;
-import com.managementtool.contrader.service.PersonService;
-import com.managementtool.contrader.web.rest.errors.ExceptionTranslator;
+import com.managementtool.contrader.projects.domain.Person;
+import com.managementtool.contrader.projects.service.impl.PersonServiceImpl;
+import com.managementtool.contrader.projects.web.rest.PersonResource;
+import com.managementtool.contrader.projects.repository.PersonRepository;
+import com.managementtool.contrader.projects.service.PersonService;
+//import com.managementtool.contrader.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +39,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see PersonResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = ProjectsApp.class)
+//@SpringBootTest(classes = ProjectsApp.class)
 public class PersonResourceIntTest {
 
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
@@ -52,7 +54,7 @@ public class PersonResourceIntTest {
     
 
     @Autowired
-    private PersonService personService;
+    private PersonServiceImpl personService;
 
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -60,8 +62,8 @@ public class PersonResourceIntTest {
     @Autowired
     private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
 
-    @Autowired
-    private ExceptionTranslator exceptionTranslator;
+ //   @Autowired
+ //   private ExceptionTranslator exceptionTranslator;
 
     @Autowired
     private EntityManager em;
@@ -76,7 +78,7 @@ public class PersonResourceIntTest {
         final PersonResource personResource = new PersonResource(personService);
         this.restPersonMockMvc = MockMvcBuilders.standaloneSetup(personResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
-            .setControllerAdvice(exceptionTranslator)
+        //    .setControllerAdvice(exceptionTranslator)
             .setConversionService(createFormattingConversionService())
             .setMessageConverters(jacksonMessageConverter).build();
     }
@@ -215,7 +217,7 @@ public class PersonResourceIntTest {
     @Transactional
     public void updatePerson() throws Exception {
         // Initialize the database
-        personService.save(person);
+    //    personService.save(person);
 
         int databaseSizeBeforeUpdate = personRepository.findAll().size();
 
@@ -262,7 +264,7 @@ public class PersonResourceIntTest {
     @Transactional
     public void deletePerson() throws Exception {
         // Initialize the database
-        personService.save(person);
+    //    personService.save(person);
 
         int databaseSizeBeforeDelete = personRepository.findAll().size();
 

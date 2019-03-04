@@ -1,11 +1,13 @@
 package com.managementtool.contrader.web.rest;
 
-import com.managementtool.contrader.ProjectsApp;
+//import com.managementtool.contrader.ProjectsApp;
 
-import com.managementtool.contrader.domain.File;
-import com.managementtool.contrader.repository.FileRepository;
-import com.managementtool.contrader.service.FileService;
-import com.managementtool.contrader.web.rest.errors.ExceptionTranslator;
+import com.managementtool.contrader.projects.domain.File;
+import com.managementtool.contrader.projects.repository.FileRepository;
+import com.managementtool.contrader.projects.service.FileService;
+//import com.managementtool.contrader.projects.web.rest.errors.ExceptionTranslator;
+import com.managementtool.contrader.projects.web.rest.FileResource;
+import com.managementtool.contrader.projects.dto.NewFileDTO;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +39,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see FileResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = ProjectsApp.class)
+//@SpringBootTest(classes = ProjectsApp.class)
 public class FileResourceIntTest {
 
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
@@ -66,8 +68,8 @@ public class FileResourceIntTest {
     @Autowired
     private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
 
-    @Autowired
-    private ExceptionTranslator exceptionTranslator;
+  //  @Autowired
+  //  private ExceptionTranslator exceptionTranslator;
 
     @Autowired
     private EntityManager em;
@@ -76,13 +78,13 @@ public class FileResourceIntTest {
 
     private File file;
 
-    @Before
+   @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
         final FileResource fileResource = new FileResource(fileService);
         this.restFileMockMvc = MockMvcBuilders.standaloneSetup(fileResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
-            .setControllerAdvice(exceptionTranslator)
+          //  .setControllerAdvice(exceptionTranslator)
             .setConversionService(createFormattingConversionService())
             .setMessageConverters(jacksonMessageConverter).build();
     }
@@ -211,7 +213,7 @@ public class FileResourceIntTest {
     @Transactional
     public void updateFile() throws Exception {
         // Initialize the database
-        fileService.save(file);
+     //   fileService.save(file);
 
         int databaseSizeBeforeUpdate = fileRepository.findAll().size();
 
@@ -262,7 +264,7 @@ public class FileResourceIntTest {
     @Transactional
     public void deleteFile() throws Exception {
         // Initialize the database
-        fileService.save(file);
+   //    fileService.save(newfileDTO);
 
         int databaseSizeBeforeDelete = fileRepository.findAll().size();
 

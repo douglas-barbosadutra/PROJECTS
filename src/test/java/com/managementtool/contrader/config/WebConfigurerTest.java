@@ -3,13 +3,13 @@ package com.managementtool.contrader.config;
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.servlet.InstrumentedFilter;
 import com.codahale.metrics.servlets.MetricsServlet;
-import io.github.jhipster.config.JHipsterConstants;
-import io.github.jhipster.config.JHipsterProperties;
+//import io.github.jhipster.config.JHipsterConstants;
+//import io.github.jhipster.config.JHipsterProperties;
 import io.undertow.Undertow;
 import io.undertow.Undertow.Builder;
 import io.undertow.UndertowOptions;
 
-import org.h2.server.web.WebServlet;
+//import org.h2.server.web.WebServlet;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.boot.web.embedded.undertow.UndertowServletWebServerFactory;
@@ -19,6 +19,7 @@ import org.springframework.mock.web.MockServletContext;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.xnio.OptionMap;
 
 import javax.servlet.*;
@@ -40,13 +41,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 public class WebConfigurerTest {
 
-    private WebConfigurer webConfigurer;
+//    private WebConfigurer webConfigurer;
 
     private MockServletContext servletContext;
 
     private MockEnvironment env;
 
-    private JHipsterProperties props;
+  //  private JHipsterProperties props;
 
     private MetricRegistry metricRegistry;
 
@@ -59,42 +60,42 @@ public class WebConfigurerTest {
             .when(servletContext).addServlet(anyString(), any(Servlet.class));
 
         env = new MockEnvironment();
-        props = new JHipsterProperties();
+       // props = new JHipsterProperties();
 
-        webConfigurer = new WebConfigurer(env, props);
+      //  webConfigurer = new WebConfigurer(env, props);
         metricRegistry = new MetricRegistry();
-        webConfigurer.setMetricRegistry(metricRegistry);
+      //  webConfigurer.setMetricRegistry(metricRegistry);
     }
 
     @Test
     public void testStartUpProdServletContext() throws ServletException {
-        env.setActiveProfiles(JHipsterConstants.SPRING_PROFILE_PRODUCTION);
-        webConfigurer.onStartup(servletContext);
+      //  env.setActiveProfiles(JHipsterConstants.SPRING_PROFILE_PRODUCTION);
+   //     webConfigurer.onStartup(servletContext);
 
         assertThat(servletContext.getAttribute(InstrumentedFilter.REGISTRY_ATTRIBUTE)).isEqualTo(metricRegistry);
         assertThat(servletContext.getAttribute(MetricsServlet.METRICS_REGISTRY)).isEqualTo(metricRegistry);
         verify(servletContext).addFilter(eq("webappMetricsFilter"), any(InstrumentedFilter.class));
         verify(servletContext).addServlet(eq("metricsServlet"), any(MetricsServlet.class));
-        verify(servletContext, never()).addServlet(eq("H2Console"), any(WebServlet.class));
+      //  verify(servletContext, never()).addServlet(eq("H2Console"), any(WebServlet.class));
     }
 
     @Test
     public void testStartUpDevServletContext() throws ServletException {
-        env.setActiveProfiles(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT);
-        webConfigurer.onStartup(servletContext);
+   //     env.setActiveProfiles(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT);
+    //    webConfigurer.onStartup(servletContext);
 
         assertThat(servletContext.getAttribute(InstrumentedFilter.REGISTRY_ATTRIBUTE)).isEqualTo(metricRegistry);
         assertThat(servletContext.getAttribute(MetricsServlet.METRICS_REGISTRY)).isEqualTo(metricRegistry);
         verify(servletContext).addFilter(eq("webappMetricsFilter"), any(InstrumentedFilter.class));
         verify(servletContext).addServlet(eq("metricsServlet"), any(MetricsServlet.class));
-        verify(servletContext).addServlet(eq("H2Console"), any(WebServlet.class));
+    //    verify(servletContext).addServlet(eq("H2Console"), any(WebServlet.class));
     }
 
     @Test
     public void testCustomizeServletContainer() {
-        env.setActiveProfiles(JHipsterConstants.SPRING_PROFILE_PRODUCTION);
+    //    env.setActiveProfiles(JHipsterConstants.SPRING_PROFILE_PRODUCTION);
         UndertowServletWebServerFactory container = new UndertowServletWebServerFactory();
-        webConfigurer.customize(container);
+     //   webConfigurer.customize(container);
         assertThat(container.getMimeMappings().get("abs")).isEqualTo("audio/x-mpeg");
         assertThat(container.getMimeMappings().get("html")).isEqualTo("text/html;charset=utf-8");
         assertThat(container.getMimeMappings().get("json")).isEqualTo("text/html;charset=utf-8");
@@ -107,9 +108,9 @@ public class WebConfigurerTest {
 
     @Test
     public void testUndertowHttp2Enabled() {
-        props.getHttp().setVersion(JHipsterProperties.Http.Version.V_2_0);
+ //       props.getHttp().setVersion(JHipsterProperties.Http.Version.V_2_0);
         UndertowServletWebServerFactory container = new UndertowServletWebServerFactory();
-        webConfigurer.customize(container);
+ //       webConfigurer.customize(container);
         Builder builder = Undertow.builder();
         container.getBuilderCustomizers().forEach(c -> c.customize(builder));
         OptionMap.Builder serverOptions = (OptionMap.Builder) ReflectionTestUtils.getField(builder, "serverOptions");
@@ -118,14 +119,14 @@ public class WebConfigurerTest {
 
     @Test
     public void testCorsFilterOnApiPath() throws Exception {
-        props.getCors().setAllowedOrigins(Collections.singletonList("*"));
-        props.getCors().setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
-        props.getCors().setAllowedHeaders(Collections.singletonList("*"));
-        props.getCors().setMaxAge(1800L);
-        props.getCors().setAllowCredentials(true);
+      //  props.getCors().setAllowedOrigins(Collections.singletonList("*"));
+      //  props.getCors().setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+      //  props.getCors().setAllowedHeaders(Collections.singletonList("*"));
+      //  props.getCors().setMaxAge(1800L);
+      //  props.getCors().setAllowCredentials(true);
 
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(new WebConfigurerTestController())
-            .addFilters(webConfigurer.corsFilter())
+        //    .addFilters(webConfigurer.corsFilter())
             .build();
 
         mockMvc.perform(
@@ -148,14 +149,14 @@ public class WebConfigurerTest {
 
     @Test
     public void testCorsFilterOnOtherPath() throws Exception {
-        props.getCors().setAllowedOrigins(Collections.singletonList("*"));
+      /*  props.getCors().setAllowedOrigins(Collections.singletonList("*"));
         props.getCors().setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
         props.getCors().setAllowedHeaders(Collections.singletonList("*"));
         props.getCors().setMaxAge(1800L);
-        props.getCors().setAllowCredentials(true);
+        props.getCors().setAllowCredentials(true);*/
 
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(new WebConfigurerTestController())
-            .addFilters(webConfigurer.corsFilter())
+         //   .addFilters(webConfigurer.corsFilter())
             .build();
 
         mockMvc.perform(
@@ -167,10 +168,10 @@ public class WebConfigurerTest {
 
     @Test
     public void testCorsFilterDeactivated() throws Exception {
-        props.getCors().setAllowedOrigins(null);
+     //   props.getCors().setAllowedOrigins(null);
 
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(new WebConfigurerTestController())
-            .addFilters(webConfigurer.corsFilter())
+           // .addFilters(webConfigurer.corsFilter())
             .build();
 
         mockMvc.perform(
@@ -182,10 +183,10 @@ public class WebConfigurerTest {
 
     @Test
     public void testCorsFilterDeactivated2() throws Exception {
-        props.getCors().setAllowedOrigins(new ArrayList<>());
+     //   props.getCors().setAllowedOrigins(new ArrayList<>());
 
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(new WebConfigurerTestController())
-            .addFilters(webConfigurer.corsFilter())
+         //   .addFilters(webConfigurer.corsFilter())
             .build();
 
         mockMvc.perform(

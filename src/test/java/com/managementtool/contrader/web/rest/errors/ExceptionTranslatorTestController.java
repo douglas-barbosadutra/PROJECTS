@@ -25,7 +25,7 @@ public class ExceptionTranslatorTestController {
     public void methodArgument(@Valid @RequestBody TestDTO testDTO) {
     }
 
-    @GetMapping("/test/parameterized-error")
+  /*  @GetMapping("/test/parameterized-error")
     public void parameterizedError() {
         throw new CustomParameterizedException("test parameterized error", "param0_value", "param1_value");
     }
@@ -36,7 +36,7 @@ public class ExceptionTranslatorTestController {
         params.put("foo", "foo_value");
         params.put("bar", "bar_value");
         throw new CustomParameterizedException("test parameterized error", params);
-    }
+    }*/
 
     @GetMapping("/test/missing-servlet-request-part")
     public void missingServletRequestPartException() throws Exception {

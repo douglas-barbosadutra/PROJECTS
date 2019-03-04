@@ -15,7 +15,16 @@ public class TaskDTO implements Serializable {
 	private String description;
 	private Project project;
 	
-	
+	 public TaskDTO() {
+
+	 }
+	 
+	 public TaskDTO(long id,String description, Project project) {
+			this.id = id;
+			this.description = description;
+			this.project = project;
+		}
+
 	
 	public Long getId() {
 		return id;
