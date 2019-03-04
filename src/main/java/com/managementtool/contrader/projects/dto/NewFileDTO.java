@@ -20,14 +20,15 @@ public class NewFileDTO implements Serializable {
 
 	 }
 	 
-	 public NewFileDTO(long id,String name,String url, long size, String mime) {
+
+	 public NewFileDTO(long id,String name,String url, Long size, String mime) {
+
 			this.id = id;
 			this.name = name;
 			this.url = url;
 			this.size = size;
 			this.mime = mime;
 		}
-
 	
 	public Long getId() {
 		return id;

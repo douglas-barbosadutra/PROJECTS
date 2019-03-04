@@ -1,5 +1,6 @@
 package com.managementtool.contrader.web.rest;
 
+
 //import com.managementtool.contrader.ProjectsApp;
 
 import com.managementtool.contrader.projects.domain.Program;
@@ -7,6 +8,12 @@ import com.managementtool.contrader.projects.repository.ProgramRepository;
 import com.managementtool.contrader.projects.service.ProgramService;
 //import com.managementtool.contrader.web.rest.errors.ExceptionTranslator;
 import com.managementtool.contrader.projects.web.rest.ProgramResource;
+/*import com.managementtool.contrader.ProjectsApp;
+
+import com.managementtool.contrader.domain.Program;
+import com.managementtool.contrader.repository.ProgramRepository;
+import com.managementtool.contrader.service.ProgramService;
+import com.managementtool.contrader.web.rest.errors.ExceptionTranslator; */
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +28,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.EntityManager;
 import java.util.List;
 
@@ -58,8 +64,9 @@ public class ProgramResourceIntTest {
     @Autowired
     private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
 
-  //  @Autowired
-   // private ExceptionTranslator exceptionTranslator;
+//    @Autowired
+ //   private ExceptionTranslator exceptionTranslator;
+
 
     @Autowired
     private EntityManager em;
@@ -74,7 +81,7 @@ public class ProgramResourceIntTest {
         final ProgramResource programResource = new ProgramResource(programService);
         this.restProgramMockMvc = MockMvcBuilders.standaloneSetup(programResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
-           // .setControllerAdvice(exceptionTranslator)
+          //  .setControllerAdvice(exceptionTranslator)
             .setConversionService(createFormattingConversionService())
             .setMessageConverters(jacksonMessageConverter).build();
     }
@@ -237,6 +244,7 @@ public class ProgramResourceIntTest {
     public void deleteProgram() throws Exception {
         // Initialize the database
       //  programService.save(program);
+
 
         int databaseSizeBeforeDelete = programRepository.findAll().size();
 

@@ -12,6 +12,18 @@ import com.managementtool.contrader.projects.service.TaskService;
 //import com.managementtool.contrader.projects.web.rest.errors.ExceptionTranslator;
 import com.managementtool.contrader.projects.web.rest.ProjectResource;
 
+/*import com.managementtool.contrader.ProjectsApp;
+
+import com.managementtool.contrader.domain.Project;
+import com.managementtool.contrader.repository.ProjectRepository;
+import com.managementtool.contrader.service.FileService;
+import com.managementtool.contrader.service.ProjectService;
+import com.managementtool.contrader.service.ProgramService;
+import com.managementtool.contrader.service.PersonService;
+import com.managementtool.contrader.service.TaskService;
+import com.managementtool.contrader.web.rest.errors.ExceptionTranslator;*/
+
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,6 +37,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.managementtool.contrader.projects.domain.Project;
+import com.managementtool.contrader.projects.repository.ProjectRepository;
+import com.managementtool.contrader.projects.service.FileService;
+import com.managementtool.contrader.projects.service.PersonService;
+import com.managementtool.contrader.projects.service.ProgramService;
+import com.managementtool.contrader.projects.service.ProjectService;
+import com.managementtool.contrader.projects.service.TaskService;
+import com.managementtool.contrader.projects.web.rest.ProjectResource;
 
 import javax.persistence.EntityManager;
 import java.time.Instant;
@@ -94,8 +115,8 @@ public class ProjectResourceIntTest {
     @Autowired
     private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
 
-  //  @Autowired
-  //  private ExceptionTranslator exceptionTranslator;
+   // @Autowired
+   // private ExceptionTranslator exceptionTranslator;
 
     @Autowired
     private EntityManager em;
@@ -104,8 +125,8 @@ public class ProjectResourceIntTest {
 
     private Project project;
 
-    /*    @Before
-    public void setup() {
+ //   @Before
+/*    public void setup() {
         MockitoAnnotations.initMocks(this);
             final ProjectResource projectResource = new ProjectResource(projectService,
 				programService,
@@ -117,7 +138,8 @@ public class ProjectResourceIntTest {
      //       .setControllerAdvice(exceptionTranslator)
             .setConversionService(createFormattingConversionService())
             .setMessageConverters(jacksonMessageConverter).build();
-    }*/
+     
+    } */
 
     /**
      * Create an entity for this test.
@@ -269,7 +291,7 @@ public class ProjectResourceIntTest {
     @Transactional
     public void updateProject() throws Exception {
         // Initialize the database
-     //  projectService.save(project);
+ //       projectService.save(project);
 
         int databaseSizeBeforeUpdate = projectRepository.findAll().size();
 
@@ -324,7 +346,8 @@ public class ProjectResourceIntTest {
     @Transactional
     public void deleteProject() throws Exception {
         // Initialize the database
-    //    projectService.save(project);
+  //      projectService.save(project);
+
 
         int databaseSizeBeforeDelete = projectRepository.findAll().size();
 

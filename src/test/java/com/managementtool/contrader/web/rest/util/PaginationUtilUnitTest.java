@@ -13,6 +13,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 
+import com.managementtool.contrader.projects.web.rest.util.PaginationUtil;
+
 /**
  * Tests based on parsing algorithm in app/components/util/pagination-util.service.js
  *
@@ -24,6 +26,7 @@ public class PaginationUtilUnitTest {
     public void generatePaginationHttpHeadersTest() {
         String baseUrl = "/api/_search/example";
         List<String> content = new ArrayList<>();
+
         Page<String> page = new PageImpl<>(content, PageRequest.of(6, 50), 400L);
        /* HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, baseUrl);
         List<String> strHeaders = headers.get(HttpHeaders.LINK);
@@ -35,10 +38,13 @@ public class PaginationUtilUnitTest {
                 + "</api/_search/example?page=5&size=50>; rel=\"prev\","
                 + "</api/_search/example?page=7&size=50>; rel=\"last\","
                 + "</api/_search/example?page=0&size=50>; rel=\"first\"";
-        assertEquals(expectedData, headerData);
-       // List<String> xTotalCountHeaders = headers.get("X-Total-Count");
-        assertTrue(xTotalCountHeaders.size() == 1);
-        assertTrue(Long.valueOf(xTotalCountHeaders.get(0)).equals(400L));
+
     }*/
+
+      //  assertEquals(expectedData, headerData);
+    //    List<String> xTotalCountHeaders = headers.get("X-Total-Count");
+      //  assertTrue(xTotalCountHeaders.size() == 1);
+      //  assertTrue(Long.valueOf(xTotalCountHeaders.get(0)).equals(400L));
+
     }
 }

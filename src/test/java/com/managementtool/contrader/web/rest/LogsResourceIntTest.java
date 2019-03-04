@@ -37,11 +37,11 @@ public class LogsResourceIntTest {
         MockitoAnnotations.initMocks(this);
     }
 
-  /*     LogsResource logsResource = new LogsResource();
-        this.restLogsMockMvc = MockMvcBuilders
-            .standaloneSetup(logsResource)
-            .build();
-    }*/
+ //       LogsResource logsResource = new LogsResource();
+   //     this.restLogsMockMvc = MockMvcBuilders
+   //         .standaloneSetup(logsResource)
+        //    .build();
+
 
     @Test
     public void getAllLogs()throws Exception {
@@ -52,10 +52,11 @@ public class LogsResourceIntTest {
 
   /*  @Test
     public void changeLogs()throws Exception {
-        LoggerVM logger = new LoggerVM();
-        logger.setLevel("INFO");
-        logger.setName("ROOT");
+  //      LoggerVM logger = new LoggerVM();
+    //    logger.setLevel("INFO");
+     //   logger.setName("ROOT");
 
+<<<<<<< Updated upstream
         restLogsMockMvc.perform(put("/management/logs")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(logger)))

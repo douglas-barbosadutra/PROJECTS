@@ -25,7 +25,6 @@ public class TaskDTO implements Serializable {
 			this.project = project;
 		}
 
-	
 	public Long getId() {
 		return id;
 	}

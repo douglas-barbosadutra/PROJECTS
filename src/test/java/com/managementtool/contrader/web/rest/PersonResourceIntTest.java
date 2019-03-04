@@ -1,13 +1,18 @@
 package com.managementtool.contrader.web.rest;
 
-//import com.managementtool.contrader.ProjectsApp;
-
 import com.managementtool.contrader.projects.domain.Person;
 import com.managementtool.contrader.projects.service.impl.PersonServiceImpl;
 import com.managementtool.contrader.projects.web.rest.PersonResource;
 import com.managementtool.contrader.projects.repository.PersonRepository;
 import com.managementtool.contrader.projects.service.PersonService;
 //import com.managementtool.contrader.web.rest.errors.ExceptionTranslator;
+/*import com.managementtool.contrader.ProjectsApp;
+
+import com.managementtool.contrader.domain.Person;
+import com.managementtool.contrader.repository.PersonRepository;
+import com.managementtool.contrader.service.PersonService;
+import com.managementtool.contrader.web.rest.errors.ExceptionTranslator;*/
+
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +27,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.EntityManager;
 import java.util.List;
 
@@ -78,7 +82,7 @@ public class PersonResourceIntTest {
         final PersonResource personResource = new PersonResource(personService);
         this.restPersonMockMvc = MockMvcBuilders.standaloneSetup(personResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
-        //    .setControllerAdvice(exceptionTranslator)
+    //        .setControllerAdvice(exceptionTranslator)
             .setConversionService(createFormattingConversionService())
             .setMessageConverters(jacksonMessageConverter).build();
     }
@@ -217,7 +221,7 @@ public class PersonResourceIntTest {
     @Transactional
     public void updatePerson() throws Exception {
         // Initialize the database
-    //    personService.save(person);
+   //     personService.save(person);
 
         int databaseSizeBeforeUpdate = personRepository.findAll().size();
 
@@ -265,6 +269,7 @@ public class PersonResourceIntTest {
     public void deletePerson() throws Exception {
         // Initialize the database
     //    personService.save(person);
+
 
         int databaseSizeBeforeDelete = personRepository.findAll().size();
 

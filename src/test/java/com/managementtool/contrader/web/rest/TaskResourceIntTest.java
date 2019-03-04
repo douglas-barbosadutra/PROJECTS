@@ -1,5 +1,6 @@
 package com.managementtool.contrader.web.rest;
 
+
 //import com.managementtool.contrader.ProjectsApp;
 
 import com.managementtool.contrader.projects.domain.Task;
@@ -7,6 +8,13 @@ import com.managementtool.contrader.projects.repository.TaskRepository;
 import com.managementtool.contrader.projects.service.TaskService;
 //import com.managementtool.contrader.projects.web.rest.errors.ExceptionTranslator;
 import com.managementtool.contrader.projects.web.rest.TaskResource;
+/*import com.managementtool.contrader.ProjectsApp;
+
+import com.managementtool.contrader.domain.Task;
+import com.managementtool.contrader.repository.TaskRepository;
+import com.managementtool.contrader.service.TaskService;
+import com.managementtool.contrader.web.rest.errors.ExceptionTranslator;*/
+
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,6 +29,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.managementtool.contrader.projects.domain.Task;
+import com.managementtool.contrader.projects.repository.TaskRepository;
+import com.managementtool.contrader.projects.service.TaskService;
+import com.managementtool.contrader.projects.web.rest.TaskResource;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -58,8 +71,8 @@ public class TaskResourceIntTest {
     @Autowired
     private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
 
-  //  @Autowired
-  // private ExceptionTranslator exceptionTranslator;
+ //   @Autowired
+ //   private ExceptionTranslator exceptionTranslator;
 
     @Autowired
     private EntityManager em;
@@ -74,7 +87,8 @@ public class TaskResourceIntTest {
         final TaskResource taskResource = new TaskResource(taskService);
         this.restTaskMockMvc = MockMvcBuilders.standaloneSetup(taskResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
-           //.setControllerAdvice(exceptionTranslator)
+ //           .setControllerAdvice(exceptionTranslator)
+
             .setConversionService(createFormattingConversionService())
             .setMessageConverters(jacksonMessageConverter).build();
     }
@@ -191,7 +205,8 @@ public class TaskResourceIntTest {
     @Transactional
     public void updateTask() throws Exception {
         // Initialize the database
-       // taskService.save(task);
+  //      taskService.save(task);
+
 
         int databaseSizeBeforeUpdate = taskRepository.findAll().size();
 
@@ -236,7 +251,8 @@ public class TaskResourceIntTest {
     @Transactional
     public void deleteTask() throws Exception {
         // Initialize the database
- //       taskService.save(task);
+    //    taskService.save(task);
+
 
         int databaseSizeBeforeDelete = taskRepository.findAll().size();
 

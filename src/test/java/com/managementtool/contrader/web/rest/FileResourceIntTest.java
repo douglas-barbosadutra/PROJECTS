@@ -1,5 +1,6 @@
 package com.managementtool.contrader.web.rest;
 
+
 //import com.managementtool.contrader.ProjectsApp;
 
 import com.managementtool.contrader.projects.domain.File;
@@ -8,7 +9,6 @@ import com.managementtool.contrader.projects.service.FileService;
 //import com.managementtool.contrader.projects.web.rest.errors.ExceptionTranslator;
 import com.managementtool.contrader.projects.web.rest.FileResource;
 import com.managementtool.contrader.projects.dto.NewFileDTO;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -69,7 +69,8 @@ public class FileResourceIntTest {
     private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
 
   //  @Autowired
-  //  private ExceptionTranslator exceptionTranslator;
+   // private ExceptionTranslator exceptionTranslator;
+
 
     @Autowired
     private EntityManager em;
@@ -213,7 +214,7 @@ public class FileResourceIntTest {
     @Transactional
     public void updateFile() throws Exception {
         // Initialize the database
-     //   fileService.save(file);
+    //    fileService.save(file);
 
         int databaseSizeBeforeUpdate = fileRepository.findAll().size();
 
@@ -264,8 +265,7 @@ public class FileResourceIntTest {
     @Transactional
     public void deleteFile() throws Exception {
         // Initialize the database
-   //    fileService.save(newfileDTO);
-
+    //    fileService.save(file);
         int databaseSizeBeforeDelete = fileRepository.findAll().size();
 
         // Get the file

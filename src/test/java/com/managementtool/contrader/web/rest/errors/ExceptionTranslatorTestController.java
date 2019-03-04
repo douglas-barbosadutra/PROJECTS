@@ -2,8 +2,8 @@ package com.managementtool.contrader.web.rest.errors;
 
 import org.springframework.dao.ConcurrencyFailureException;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.authentication.BadCredentialsException;
+//import org.springframework.security.access.AccessDeniedException;
+//import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
@@ -27,7 +27,7 @@ public class ExceptionTranslatorTestController {
 
   /*  @GetMapping("/test/parameterized-error")
     public void parameterizedError() {
-        throw new CustomParameterizedException("test parameterized error", "param0_value", "param1_value");
+  //      throw new CustomParameterizedException("test parameterized error", "param0_value", "param1_value");
     }
 
     @GetMapping("/test/parameterized-error2")
@@ -35,8 +35,11 @@ public class ExceptionTranslatorTestController {
         Map<String, Object> params = new HashMap<>();
         params.put("foo", "foo_value");
         params.put("bar", "bar_value");
+<<<<<<< Updated upstream
         throw new CustomParameterizedException("test parameterized error", params);
     }*/
+
+
 
     @GetMapping("/test/missing-servlet-request-part")
     public void missingServletRequestPartException() throws Exception {
@@ -50,12 +53,12 @@ public class ExceptionTranslatorTestController {
 
     @GetMapping("/test/access-denied")
     public void accessdenied() {
-        throw new AccessDeniedException("test access denied!");
+   //     throw new AccessDeniedException("test access denied!");
     }
 
     @GetMapping("/test/unauthorized")
     public void unauthorized() {
-        throw new BadCredentialsException("test authentication failed!");
+  //      throw new BadCredentialsException("test authentication failed!");
     }
 
     @GetMapping("/test/response-status")
