@@ -55,7 +55,7 @@ public class ProgramServiceImpl implements ProgramService {
      */
     @Override
     @Transactional(readOnly = true)
-    public List<NewProgramDTO> getAll(){
+    public List<NewProgramDTO> findAll(){
 		List<Program> listaProgrammi = (List<Program>) programRepository.findAll();
 		List<NewProgramDTO> listaProgram = new ArrayList<>();
 		listaProgrammi.forEach(i->listaProgram.add(NewProgramMapper.toDto(i)));

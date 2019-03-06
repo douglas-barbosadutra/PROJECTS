@@ -68,7 +68,7 @@ import com.managementtool.contrader.projects.service.FileService;
 				newfileDTO.setMime(mime);
 				newfileDTO.setUrl(url);
 				newfileDTO.setSize(size);
-				fileService.save(newfileDTO);
+				newfileDTO = fileService.save(newfileDTO);
 				return newfileDTO;
 			}
 	

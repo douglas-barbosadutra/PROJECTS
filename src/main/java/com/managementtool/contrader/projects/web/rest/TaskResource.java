@@ -63,7 +63,7 @@ import com.managementtool.contrader.projects.service.TaskService;
 				TaskDTO taskDTO = new TaskDTO();
 				taskDTO.setDescription(description);
 				taskDTO.setProject(project);
-				taskService.save(taskDTO);
+				taskDTO = taskService.save(taskDTO);
 				return taskDTO;
 			}
 	

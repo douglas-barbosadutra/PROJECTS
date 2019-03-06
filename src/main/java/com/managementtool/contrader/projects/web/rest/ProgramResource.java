@@ -42,7 +42,7 @@ import com.managementtool.contrader.projects.service.ProgramService;
 		@CrossOrigin
 		@RequestMapping(value = "/ShowProgram", method = RequestMethod.GET)
 		public List<NewProgramDTO> getAll(){
-			List<NewProgramDTO> program = programService.getAll();
+			List<NewProgramDTO> program = programService.findAll();
 			return program;
 		}
 		
@@ -60,7 +60,7 @@ import com.managementtool.contrader.projects.service.ProgramService;
 				
 				NewProgramDTO newprogramDTO = new NewProgramDTO();
 				newprogramDTO.setName(name);
-				programService.save(newprogramDTO);
+				newprogramDTO = programService.save(newprogramDTO);
 				return newprogramDTO;
 			}
 	

@@ -28,7 +28,7 @@ public interface ProgramService {
      * @param pageable the pagination information
      * @return the list of entities
      */
-    List<NewProgramDTO> getAll();
+    List<NewProgramDTO> findAll();
 
 
     /**

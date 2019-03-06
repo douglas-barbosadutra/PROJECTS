@@ -9,19 +9,23 @@ import com.managementtool.contrader.projects.service.ProjectService;
 import com.managementtool.contrader.projects.service.ProgramService;
 import com.managementtool.contrader.projects.service.PersonService;
 import com.managementtool.contrader.projects.service.TaskService;
+import com.managementtool.contrader.projects.service.impl.PersonServiceImpl;
+import com.managementtool.contrader.projects.service.impl.ProgramServiceImpl;
+import com.managementtool.contrader.projects.service.impl.ProjectServiceImpl;
+import com.managementtool.contrader.projects.service.impl.TaskServiceImpl;
 //import com.managementtool.contrader.projects.web.rest.errors.ExceptionTranslator;
 import com.managementtool.contrader.projects.web.rest.ProjectResource;
 
-/*import com.managementtool.contrader.ProjectsApp;
+import com.managementtool.contrader.projects.ProjectsApplication;
 
-import com.managementtool.contrader.domain.Project;
-import com.managementtool.contrader.repository.ProjectRepository;
-import com.managementtool.contrader.service.FileService;
-import com.managementtool.contrader.service.ProjectService;
-import com.managementtool.contrader.service.ProgramService;
-import com.managementtool.contrader.service.PersonService;
-import com.managementtool.contrader.service.TaskService;
-import com.managementtool.contrader.web.rest.errors.ExceptionTranslator;*/
+import com.managementtool.contrader.projects.domain.Project;
+import com.managementtool.contrader.projects.repository.ProjectRepository;
+import com.managementtool.contrader.projects.service.FileService;
+import com.managementtool.contrader.projects.service.ProjectService;
+import com.managementtool.contrader.projects.service.ProgramService;
+import com.managementtool.contrader.projects.service.PersonService;
+import com.managementtool.contrader.projects.service.TaskService;
+//import com.managementtool.contrader.web.rest.errors.ExceptionTranslator;
 
 
 import org.junit.Before;
@@ -68,7 +72,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see ProjectResource
  */
 @RunWith(SpringRunner.class)
-//@SpringBootTest(classes = ProjectsApp.class)
+@SpringBootTest(classes = ProjectsApplication.class)
 public class ProjectResourceIntTest {
 
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
@@ -125,21 +129,22 @@ public class ProjectResourceIntTest {
 
     private Project project;
 
- //   @Before
-/*    public void setup() {
+   @Before
+   public void setup() {
         MockitoAnnotations.initMocks(this);
-            final ProjectResource projectResource = new ProjectResource(projectService,
+        final ProjectResource projectResource = new ProjectResource (projectService);
+          /*  final ProjectResource projectResource = new ProjectResource(projectService,
 				programService,
 				personService,
 				taskService,
-				fileService);
+				fileService);*/
         this.restProjectMockMvc = MockMvcBuilders.standaloneSetup(projectResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
      //       .setControllerAdvice(exceptionTranslator)
             .setConversionService(createFormattingConversionService())
             .setMessageConverters(jacksonMessageConverter).build();
      
-    } */
+    } 
 
     /**
      * Create an entity for this test.

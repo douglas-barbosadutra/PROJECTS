@@ -1,7 +1,7 @@
 package com.managementtool.contrader.web.rest;
 
 
-//import com.managementtool.contrader.ProjectsApp;
+import com.managementtool.contrader.projects.ProjectsApplication;
 
 import com.managementtool.contrader.projects.domain.Task;
 import com.managementtool.contrader.projects.repository.TaskRepository;
@@ -51,7 +51,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see TaskResource
  */
 @RunWith(SpringRunner.class)
-//@SpringBootTest(classes = ProjectsApp.class)
+@SpringBootTest(classes = ProjectsApplication.class)
 public class TaskResourceIntTest {
 
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";

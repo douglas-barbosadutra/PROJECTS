@@ -22,18 +22,27 @@ public class Program implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @NotNull
     @Column(name = "name", nullable = false)
     private String name;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
+    public Program () {
+    	
+    }
+    public Program(int id, @NotNull String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	// jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -60,7 +69,8 @@ public class Program implements Serializable {
             return false;
         }
         Program program = (Program) o;
-        if (program.getId() == null || getId() == null) {
+        if (program.getId() == 0 || getId() == 0) {
+       
             return false;
         }
         return Objects.equals(getId(), program.getId());
@@ -71,11 +81,14 @@ public class Program implements Serializable {
         return Objects.hashCode(getId());
     }
 
-    @Override
+      @Override
     public String toString() {
         return "Program{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
             "}";
     }
+
+
+
 }

@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class NewProgramDTO implements Serializable {
-	private Long id;
+	private int id;
 	private String name;
 	
 	
@@ -17,13 +17,13 @@ public class NewProgramDTO implements Serializable {
 
 	 }
 	 
-	 public NewProgramDTO(long id,String name) {
+	 public NewProgramDTO(int id,String name) {
 			this.id = id;
 			this.name = name;
 			
 		}
 	
-	public Long getId() {
+	public int getId() {
         return id;
     }
 
@@ -41,7 +41,7 @@ public class NewProgramDTO implements Serializable {
 
 
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -56,7 +56,7 @@ public class NewProgramDTO implements Serializable {
             return false;
         }
         Program program = (Program) o;
-        if (program.getId() == null || getId() == null) {
+        if (program.getId() == 0 || getId() == 0) {
             return false;
         }
         return Objects.equals(getId(), program.getId());
