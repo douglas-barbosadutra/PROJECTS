@@ -2,7 +2,7 @@ package com.managementtool.contrader.projects.service.impl;
 
 import com.managementtool.contrader.projects.service.ProgramService;
 import com.managementtool.contrader.projects.service.dto.mapper.NewProgramMapper;
-
+import com.managementtool.contrader.projects.domain.Person;
 import com.managementtool.contrader.projects.domain.Program;
 import com.managementtool.contrader.projects.dto.NewProgramDTO;
 import com.managementtool.contrader.projects.repository.ProgramRepository;
@@ -21,7 +21,7 @@ import java.util.Optional;
  * Service Implementation for managing Program.
  */
 @Service
-@Transactional
+
 public class ProgramServiceImpl implements ProgramService {
 
     private final Logger log = LoggerFactory.getLogger(ProgramServiceImpl.class);
@@ -72,9 +72,9 @@ public class ProgramServiceImpl implements ProgramService {
      */
     @Override
     @Transactional(readOnly = true)
-    public NewProgramDTO findOne(Long id) {
+    public NewProgramDTO findOne(int id) {
         log.debug("Request to get Program : {}", id);
-        NewProgramDTO newprogramDTO= NewProgramMapper.toDto(programRepository.findById(id).get());
+        NewProgramDTO newprogramDTO= NewProgramMapper.toDto(programRepository.findOne(id));
         return newprogramDTO;
     }
     
@@ -86,9 +86,19 @@ public class ProgramServiceImpl implements ProgramService {
      * @param id the id of the entity
      */
     @Override
-    public void delete (Long id) {
+    public void delete (int id) {
     	log.debug("Request to delete Program : {}", id);
-    	Program program = programRepository.findById(id).get();
+    	Program program = programRepository.findOne(id);
     	this.programRepository.delete(program);   	 
     }
+
+	@Override
+	public Program delete2(int id) {
+		Program deleted =programRepository.findOne(id);
+		programRepository.delete(deleted);
+		return deleted;
+		
+	}
+
+	
 }

@@ -48,7 +48,7 @@ import com.managementtool.contrader.projects.service.ProgramService;
 		
 		 @CrossOrigin
 			@RequestMapping(value="/delete", method = RequestMethod.GET)
-			public boolean delete(@RequestParam(value="id") Long id) {
+			public boolean delete(@RequestParam(value="id") int id) {
 				programService.delete(id);
 				return true;
 	}
@@ -67,7 +67,7 @@ import com.managementtool.contrader.projects.service.ProgramService;
 		 @CrossOrigin
 		 @RequestMapping (value ="/update", method= RequestMethod.POST)
 		 public NewProgramDTO update (
-				 @RequestParam(value = "id") Long id,
+				 @RequestParam(value = "id") int id,
 				 @RequestParam(value="name") String name) {
 			 NewProgramDTO newprogramDTO = programService.findOne(id);
 			 newprogramDTO.setName(name);

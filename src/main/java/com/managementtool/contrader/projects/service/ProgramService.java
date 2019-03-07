@@ -1,5 +1,6 @@
 package com.managementtool.contrader.projects.service;
 
+import com.managementtool.contrader.projects.domain.Person;
 import com.managementtool.contrader.projects.domain.Program;
 import com.managementtool.contrader.projects.dto.NewProgramDTO;
 
@@ -37,12 +38,18 @@ public interface ProgramService {
      * @param id the id of the entity
      * @return the entity
      */
-    NewProgramDTO findOne(Long id);
-
+   
     /**
      * Delete the "id" program.
      *
      * @param id the id of the entity
      */
-    void delete(Long id);
+    void delete(int id);
+    
+   
+    
+    Program delete2(int id);
+
+	NewProgramDTO findOne(int id);
+	
 }
