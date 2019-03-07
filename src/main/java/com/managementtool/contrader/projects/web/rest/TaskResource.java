@@ -49,7 +49,7 @@ import com.managementtool.contrader.projects.service.TaskService;
 		
 		 @CrossOrigin
 			@RequestMapping(value="/deleteTask", method = RequestMethod.GET)
-			public boolean delete(@RequestParam(value="id") Long id) {
+			public boolean delete(@RequestParam(value="id") int id) {
 				taskService.delete(id);
 				return true;
 	}
@@ -70,7 +70,7 @@ import com.managementtool.contrader.projects.service.TaskService;
 		 @CrossOrigin
 		 @RequestMapping (value ="/updateTask", method= RequestMethod.POST)
 		 public TaskDTO update (
-				 @RequestParam(value = "id") Long id,
+				 @RequestParam(value = "id") int id,
 				 @RequestParam(value="description") String description,
 				 @RequestParam(value="currentTask") Project project ) {
 			 TaskDTO taskDTO = taskService.findOne(id);

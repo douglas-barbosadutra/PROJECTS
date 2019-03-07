@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class TaskDTO implements Serializable {
-	private Long id;
+	private int id;
 	private String description;
 	private Project project;
 	
@@ -19,16 +19,16 @@ public class TaskDTO implements Serializable {
 
 	 }
 	 
-	 public TaskDTO(long id,String description, Project project) {
+	 public TaskDTO(int id,String description, Project project) {
 			this.id = id;
 			this.description = description;
 			this.project = project;
 		}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getDescription() {
@@ -53,7 +53,7 @@ public class TaskDTO implements Serializable {
 	            return false;
 	        }
 	        Task task = (Task) o;
-	        if (task.getId() == null || getId() == null) {
+	        if (task.getId() == 0 || getId() == 0) {
 	            return false;
 	        }
 	        return Objects.equals(getId(), task.getId());

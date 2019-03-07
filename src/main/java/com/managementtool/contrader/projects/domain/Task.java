@@ -24,7 +24,7 @@ public class Task implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @NotNull
     @Column(name = "description", nullable = false)
@@ -33,13 +33,26 @@ public class Task implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("currentTask")
     private Project project;
+    
+    
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
+    public Task(int id, @NotNull String description, Project project) {
+		
+		this.id = id;
+		this.description = description;
+		this.project = project;
+	}
+
+	public Task() {
+		// TODO Auto-generated constructor stub
+	}
+
+	// jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -79,7 +92,7 @@ public class Task implements Serializable {
             return false;
         }
         Task task = (Task) o;
-        if (task.getId() == null || getId() == null) {
+        if (task.getId() == 0 || getId() == 0) {
             return false;
         }
         return Objects.equals(getId(), task.getId());

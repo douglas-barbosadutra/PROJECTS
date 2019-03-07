@@ -1,9 +1,11 @@
 package com.managementtool.contrader.projects.service.impl;
 
 import com.managementtool.contrader.projects.service.TaskService;
+import com.managementtool.contrader.projects.service.dto.mapper.PersonMapper;
 import com.managementtool.contrader.projects.service.dto.mapper.TaskMapper;
-
+import com.managementtool.contrader.projects.domain.Person;
 import com.managementtool.contrader.projects.domain.Task;
+import com.managementtool.contrader.projects.dto.PersonDTO;
 import com.managementtool.contrader.projects.dto.TaskDTO;
 import com.managementtool.contrader.projects.repository.TaskRepository;
 import org.slf4j.Logger;
@@ -72,23 +74,31 @@ public class TaskServiceImpl implements TaskService {
      */
     @Override
     @Transactional(readOnly = true)
-    public TaskDTO findOne(Long id) {
-        log.debug("Request to get Task : {}", id);
-        TaskDTO taskDTO= TaskMapper.toDto(taskRepository.findById(id).get());
+    public TaskDTO findOne(int id) {
+       // log.debug("Request to get Task : {}", id);
+        TaskDTO taskDTO= TaskMapper.toDto(taskRepository.findOne(id));
         return taskDTO;
     }
     
-   
+  
 
     /**
      * Delete the task by id.
      *
      * @param id the id of the entity
      */
+   
     @Override
-    public void delete (Long id) {
+    public void delete (int id) {
     	log.debug("Request to delete Task : {}", id);
-    	Task task = taskRepository.findById(id).get();
-    	this.taskRepository.delete(task);   	 
+    	TaskDTO task = TaskMapper.toDto(taskRepository.findOne(id));
+    	this.taskRepository.delete(TaskMapper.toTask(task));   	 
     }
+    @Override
+	public Task delete2(int id) {
+		Task deleted =taskRepository.findOne(id);
+		taskRepository.delete(deleted);
+		return deleted;
+		
+	}
 }

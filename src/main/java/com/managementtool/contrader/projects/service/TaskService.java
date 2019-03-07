@@ -37,12 +37,14 @@ public interface TaskService {
      * @param id the id of the entity
      * @return the entity
      */
-    TaskDTO findOne(Long id);
+  
+    TaskDTO findOne(int id);
 
     /**
      * Delete the "id" task.
      *
      * @param id the id of the entity
      */
-    void delete(Long id);
+    void delete(int id);
+    Task delete2(int id);
 }
