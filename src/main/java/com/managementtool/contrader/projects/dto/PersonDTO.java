@@ -5,7 +5,7 @@ import java.util.Objects;
 
 
 public class PersonDTO{
-	 private Long id;
+	 private int id;
 	 private String name;
 	 private String lastName;
 	 
@@ -13,17 +13,17 @@ public class PersonDTO{
 
 	 }
 	 
-	 public PersonDTO(long id,String name,String lastName) {
+	 public PersonDTO(int id,String name,String lastName) {
 			this.id = id;
 			this.name = name;
 			this.lastName = lastName;
 		}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -51,7 +51,7 @@ public class PersonDTO{
             return false;
         }
         PersonDTO project = (PersonDTO) o;
-        if (project.getId() == null || getId() == null) {
+        if (project.getId() == 0 || getId() == 0) {
             return false;
         }
         return Objects.equals(getId(), project.getId());

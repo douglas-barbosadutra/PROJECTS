@@ -25,15 +25,17 @@ import com.managementtool.contrader.projects.service.dto.mapper.PersonMapper;
 public class PersonServiceImpl implements PersonService{
 
 	private final Logger log = LoggerFactory.getLogger(PersonServiceImpl.class);
+	
 
     private final PersonRepository personRepository;
+ //   private final ProvaRepository provaRepository;
 
     public PersonServiceImpl(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 	@Override
 	public PersonDTO save(PersonDTO personDTO) {
-		log.debug("Request to save Person : {}", personDTO);    
+	//	log.debug("Request to save Person : {}", personDTO);    
 		Person person = PersonMapper.convertToPerson(personDTO);
 		 this.personRepository.save(person);
 		 return PersonMapper.convertToDto(personRepository.save(person));
@@ -55,17 +57,25 @@ public class PersonServiceImpl implements PersonService{
 	} */
 	@Override
 	 @Transactional(readOnly = true)
-	public PersonDTO findOne(Long id) {
+	public PersonDTO findOne(int id) {
 	//	log.debug("Request to get Person : {}", id);
-		PersonDTO personDTO = PersonMapper.convertToDto(personRepository.findById(id).get());
+		PersonDTO personDTO = PersonMapper.convertToDto(personRepository.findOne(id));
         return  personDTO;
         
 	}
 
 	@Override
-	public void delete(Long id) {
-		log.debug("Request to delete Person : {}", id);
-        personRepository.deleteById(id);
+	public void delete(int id) {
+	//	log.debug("Request to delete Person : {}", id);
+    PersonDTO p=   PersonMapper.convertToDto( personRepository.findOne(id));
+        personRepository.delete(PersonMapper.convertToPerson(p));
+		
+	}
+	@Override
+	public Person delete2(int id) {
+		Person deleted =personRepository.findOne(id);
+		personRepository.delete(deleted);
+		return deleted;
 		
 	}
 

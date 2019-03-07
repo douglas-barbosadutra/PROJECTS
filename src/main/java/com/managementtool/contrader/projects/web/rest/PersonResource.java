@@ -3,7 +3,6 @@ package com.managementtool.contrader.projects.web.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,8 +32,8 @@ public class PersonResource {
 	}
 	 @CrossOrigin
 		@RequestMapping(value="/delete", method = RequestMethod.GET)
-		public boolean delete(@RequestParam(value="id") long id) {
-			personService.delete(id);
+		public boolean delete(@RequestParam(value="id") int id) {
+		personService.delete(id);
 			return true;
 			
 		}
@@ -53,7 +52,7 @@ public class PersonResource {
 	 @CrossOrigin
 		@RequestMapping(value="/update", method = RequestMethod.POST)
 	 public PersonDTO update(
-			 @RequestParam(value= "id") long id,
+			 @RequestParam(value= "id") int id,
 			 	@RequestParam(value= "name") String name,
 			 	@RequestParam(value= "lastName") String lastName) {
 		 PersonDTO personDTO = personService.findOne(id);

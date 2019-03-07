@@ -35,14 +35,17 @@ public interface PersonService {
      * @param id the id of the entity
      * @return the entity
      */
-    PersonDTO findOne(Long id);
 
     /**
      * Delete the "id" project.
      *
      * @param id the id of the entity
      */
-    void delete(Long id);
+    void delete(int id);
+
+	PersonDTO findOne(int id);
+	
+	 Person delete2(int id);
 }
 
 

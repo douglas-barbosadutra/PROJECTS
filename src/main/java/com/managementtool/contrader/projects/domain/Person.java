@@ -21,7 +21,7 @@ public class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @NotNull
     @Column(name = "name", nullable = false)
@@ -31,12 +31,26 @@ public class Person implements Serializable {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
+    public Person(int id, @NotNull String name, @NotNull String lastName) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.lastName = lastName;
+	}
+
+
+
+	public Person() {
+	}
+
+
+
+	// jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -76,7 +90,7 @@ public class Person implements Serializable {
             return false;
         }
         Person person = (Person) o;
-        if (person.getId() == null || getId() == null) {
+        if (person.getId() == 0 || getId() == 0) {
             return false;
         }
         return Objects.equals(getId(), person.getId());
