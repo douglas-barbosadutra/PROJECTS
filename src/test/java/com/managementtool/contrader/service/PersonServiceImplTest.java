@@ -82,7 +82,7 @@ import com.managementtool.contrader.projects.service.impl.PersonServiceImpl;
 		@Test
 		public void deleteTest() {
 			Person deleted = new Person(1,"ciao","Ciao");
-			 when(personRepository.findOne(1)).thenReturn(deleted);
+			when(personRepository.findOne(1)).thenReturn(deleted);
 			Person returned = personServiceImpl.delete2(1);
 			assertEquals(deleted, returned);
 		} 

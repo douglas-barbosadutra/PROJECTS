@@ -61,7 +61,7 @@ import com.managementtool.contrader.projects.service.FileService;
 				@RequestParam(value="name") String name,
 				@RequestParam(value="mime") String mime,
 				@RequestParam(value="url") String url,
-				@RequestParam(value="jhi_size") Long size) {
+				@RequestParam(value="jhi_size") int size) {
 				
 				NewFileDTO newfileDTO = new NewFileDTO();
 				newfileDTO.setName(name);
@@ -79,7 +79,7 @@ import com.managementtool.contrader.projects.service.FileService;
 				 @RequestParam(value="name") String name,
 				 @RequestParam(value="mime") String mime,
 				 @RequestParam(value="url") String url,
-				 @RequestParam(value="jhi_size") Long size
+				 @RequestParam(value="jhi_size") int size
 				 ) {
 			 NewFileDTO newfileDTO = fileService.findOne(id);
 			 newfileDTO.setName(name);

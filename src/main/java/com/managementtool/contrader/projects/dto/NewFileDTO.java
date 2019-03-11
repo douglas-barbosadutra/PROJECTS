@@ -10,10 +10,10 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class NewFileDTO implements Serializable {
-	private Long id;
+	private int id;
 	private String name;
 	private String url;
-	private Long size;
+	private int size;
 	private String mime;
 	
 	 public NewFileDTO() {
@@ -21,7 +21,7 @@ public class NewFileDTO implements Serializable {
 	 }
 	 
 
-	 public NewFileDTO(long id,String name,String url, Long size, String mime) {
+	 public NewFileDTO(int id,String name,String url, int size, String mime) {
 
 			this.id = id;
 			this.name = name;
@@ -30,10 +30,10 @@ public class NewFileDTO implements Serializable {
 			this.mime = mime;
 		}
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -48,10 +48,10 @@ public class NewFileDTO implements Serializable {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public Long getSize() {
+	public int getSize() {
 		return size;
 	}
-	public void setSize(Long size) {
+	public void setSize(int size) {
 		this.size = size;
 	}
 	public String getMime() {
@@ -70,7 +70,7 @@ public class NewFileDTO implements Serializable {
 	            return false;
 	        }
 	        File file = (File) o;
-	        if (file.getId() == null || getId() == null) {
+	        if (file.getId() == 0 || getId() == 0) {
 	            return false;
 	        }
 	        return Objects.equals(getId(), file.getId());

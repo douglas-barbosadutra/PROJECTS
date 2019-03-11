@@ -3,10 +3,13 @@ package com.managementtool.contrader.projects.service.impl;
 import com.managementtool.contrader.projects.service.FileService;
 import com.managementtool.contrader.projects.service.dto.mapper.NewFileMapper;
 import com.managementtool.contrader.projects.service.dto.mapper.NewProgramMapper;
+import com.managementtool.contrader.projects.service.dto.mapper.PersonMapper;
 import com.managementtool.contrader.projects.domain.File;
+import com.managementtool.contrader.projects.domain.Person;
 import com.managementtool.contrader.projects.domain.Program;
 import com.managementtool.contrader.projects.dto.NewFileDTO;
 import com.managementtool.contrader.projects.dto.NewProgramDTO;
+import com.managementtool.contrader.projects.dto.PersonDTO;
 import com.managementtool.contrader.projects.repository.FileRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,16 +69,25 @@ public class FileServiceImpl implements FileService {
     /**
      * Get one file by id.
      *
-     * @param id the id of the entity
+     * @param i the id of the entity
      * @return the entity
      */
     @Override
     @Transactional(readOnly = true)
-    public NewFileDTO findOne(Long id) {
-        log.debug("Request to get File : {}", id);
-        NewFileDTO newfileDTO= NewFileMapper.toDto(fileRepository.findById(id).get());
+    public NewFileDTO findOne(Long i) {
+        log.debug("Request to get File : {}", i);
+        NewFileDTO newfileDTO= NewFileMapper.toDto(fileRepository.findById(i).get());
         return newfileDTO;
     }
+    
+    @Override
+	@Transactional(readOnly = true)
+	public NewFileDTO findOneTest(int id) {
+	    //log.debug("Request to get Person : {}", id);
+    	NewFileDTO newfileDTO = NewFileMapper.toDto(fileRepository.findOneTest(id));
+        return  newfileDTO;   
+	}
+    
     /**
      * Delete the file by id.
      *
@@ -86,5 +98,11 @@ public class FileServiceImpl implements FileService {
     	log.debug("Request to delete File : {}", id);
     	File file = fileRepository.findById(id).get();
     	this.fileRepository.delete(file);   	 
+    }
+    
+    public File deleteTest (int id) {
+    	File deleted = fileRepository.findOneTest(id);
+    	fileRepository.delete(deleted);
+		return deleted;
     }
 }

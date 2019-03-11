@@ -3,6 +3,7 @@ package com.managementtool.contrader.projects.service;
 import com.managementtool.contrader.projects.domain.File;
 import com.managementtool.contrader.projects.dto.NewFileDTO;
 import com.managementtool.contrader.projects.dto.NewProgramDTO;
+import com.managementtool.contrader.projects.dto.PersonDTO;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -46,4 +47,20 @@ public interface FileService {
      * @param id the id of the entity
      */
     void delete(Long id);
+    
+    /**
+     * Get the "id" file.
+     *
+     * @param id the id of the entity
+     * @return the entity
+     */
+    NewFileDTO findOneTest(int id);
+    
+    /**
+     * Get the "id" file.
+     *
+     * @param id the id of the entity
+     * @return the entity
+     */
+    File deleteTest (int id);
 }

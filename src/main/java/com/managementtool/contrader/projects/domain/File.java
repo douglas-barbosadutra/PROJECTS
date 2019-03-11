@@ -21,7 +21,7 @@ public class File implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @Column(name = "name")
     private String name;
@@ -31,17 +31,31 @@ public class File implements Serializable {
     private String url;
 
     @Column(name = "jhi_size")
-    private Long size;
+    private int size;
 
     @Column(name = "mime")
     private String mime;
+    
+    public File() {
+    }
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
+    public File(int id, String name, @NotNull String url, int size, String mime) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.url = url;
+		this.size = size;
+		this.mime = mime;
+	}
+
+
+
+	// jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -71,16 +85,16 @@ public class File implements Serializable {
         this.url = url;
     }
 
-    public Long getSize() {
+    public int getSize() {
         return size;
     }
 
-    public File size(Long size) {
+    public File size(int size) {
         this.size = size;
         return this;
     }
 
-    public void setSize(Long size) {
+    public void setSize(int size) {
         this.size = size;
     }
 
@@ -107,7 +121,7 @@ public class File implements Serializable {
             return false;
         }
         File file = (File) o;
-        if (file.getId() == null || getId() == null) {
+        if (file.getId() == 0 || getId() == 0) {
             return false;
         }
         return Objects.equals(getId(), file.getId());
