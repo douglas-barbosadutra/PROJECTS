@@ -83,13 +83,13 @@ public class ProjectServiceImplTest {
 	        public void save() {
 	    	 
 	    	 ZonedDateTime data=ZonedDateTime.now();
-	    	  Task t = new Task();
+	    
 			  File f = new File();
 			  Program p = new Program();
 			  Person e = new Person();
 			  Set<Task> s = new HashSet<>();
 	    	 
-	          NewProjectDTO newprojectDTO = new NewProjectDTO(4, "Bye", 1 ,"Ciao",  "Ciao", "Ciao", data, data);
+	          NewProjectDTO newprojectDTO = new NewProjectDTO(4, "Bye", 1 ,"Ciao",  "Ciao", "Ciao", data, data, f, p, e , s);
 	          when(projectRepository.save(NewProjectMapper.convertToProject(newprojectDTO))).thenReturn(NewProjectMapper.convertToProject(newprojectDTO));
 	          assertThat(projectServiceImpl.save(newprojectDTO), is(notNullValue()));
 	        	     }

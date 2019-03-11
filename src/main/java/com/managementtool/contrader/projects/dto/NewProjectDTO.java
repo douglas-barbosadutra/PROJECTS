@@ -31,7 +31,7 @@ public class NewProjectDTO implements Serializable {
 	private Set<Task> tasks;
 	private String status;
 
-	 public NewProjectDTO(int id, @NotNull String name, @NotNull float addedValue, @NotNull String description, @NotNull String link, @NotNull String status, ZonedDateTime endDate, ZonedDateTime nextCriticalDate ) {
+	 public NewProjectDTO(int id, @NotNull String name, @NotNull float addedValue, @NotNull String description, @NotNull String link, @NotNull String status, ZonedDateTime endDate, ZonedDateTime nextCriticalDate, File file, Program program, Person headPerson, Set<Task> tasks ) {
 			super();
 			this.id = id;
 			this.name = name;
@@ -41,6 +41,10 @@ public class NewProjectDTO implements Serializable {
 			this.status = status;
 			this.endDate = endDate;
 			this.nextCriticalDate = nextCriticalDate;
+			this.file = file;
+			this.program = program;
+			this.headPerson = headPerson;
+			this.tasks = tasks;
 			
 			
 		}
