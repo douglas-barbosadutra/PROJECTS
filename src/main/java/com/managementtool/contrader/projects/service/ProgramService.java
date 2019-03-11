@@ -38,7 +38,7 @@ public interface ProgramService {
      * @param id the id of the entity
      * @return the entity
      */
-   
+    NewProgramDTO findOne(int id);
     /**
      * Delete the "id" program.
      *
@@ -50,6 +50,6 @@ public interface ProgramService {
     
     Program delete2(int id);
 
-	NewProgramDTO findOne(int id);
+	
 	
 }

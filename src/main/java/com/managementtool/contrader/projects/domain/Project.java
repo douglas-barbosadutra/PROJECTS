@@ -25,7 +25,7 @@ public class Project implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @NotNull
     @Column(name = "name", nullable = false)
@@ -71,13 +71,40 @@ public class Project implements Serializable {
     @JoinColumn(unique = true)
     @JsonIgnoreProperties({"project"})
     private Task currentTask;
+    
+    
+    
+    public Project(int id, @NotNull String name, @NotNull float addedValue, @NotNull String description, @NotNull String link, @NotNull String status, ZonedDateTime endDate, ZonedDateTime nextCriticalDate ,File file, Program program, Person headPerson, Task currentTask, Set<Task> tasks) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.addedValue = addedValue;
+		this.description = description;
+		this.link = link;
+		this.status = status;
+		this.endDate = endDate;
+		this.nextCriticalDate = nextCriticalDate;
+		this.file = file;
+		this.program = program;
+		this.headPerson = headPerson;
+		this.currentTask = currentTask;
+		this.tasks = tasks;
+		
+		
+		
+	}
+
+
+
+	public Project() {
+	}
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -259,7 +286,7 @@ public class Project implements Serializable {
             return false;
         }
         Project project = (Project) o;
-        if (project.getId() == null || getId() == null) {
+        if (project.getId() == 0 || getId() == 0) {
             return false;
         }
         return Objects.equals(getId(), project.getId());

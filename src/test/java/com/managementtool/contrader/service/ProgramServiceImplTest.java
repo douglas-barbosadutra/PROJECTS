@@ -1,7 +1,7 @@
 package com.managementtool.contrader.service;
 
 
-import com.managementtool.contrader.projects.domain.Person;
+
 import com.managementtool.contrader.projects.domain.Program;
 import com.managementtool.contrader.projects.dto.NewProgramDTO;
 import com.managementtool.contrader.projects.repository.ProgramRepository;
@@ -97,14 +97,8 @@ public class ProgramServiceImplTest {
 	          Program program = NewProgramMapper.toProgram(programServiceImpl.findOne(1));
 	           
 	          assertEquals("Sara", program.getName());
-	    
-
-	      
-	     }
+	    }
 	          
-	         
-	        
-	      
 	    @Test
       public void delete() {
 
@@ -113,5 +107,5 @@ public class ProgramServiceImplTest {
 			Program returned = programServiceImpl.delete2(1);
 			assertEquals(deleted, returned);
 	    	
-	    }    	    
+	   }    	    
 }     

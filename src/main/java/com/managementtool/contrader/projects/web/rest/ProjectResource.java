@@ -38,7 +38,7 @@ public class ProjectResource {
 	}
 	 @CrossOrigin
 		@RequestMapping(value="/delete", method = RequestMethod.GET)
-		public boolean delete(@RequestParam(value="id") long id) {
+		public boolean delete(@RequestParam(value="id") int id) {
 			projectService.delete(id);
 			return true;
 			
@@ -69,7 +69,7 @@ public class ProjectResource {
 	 @CrossOrigin
 		@RequestMapping(value="/update", method = RequestMethod.POST)
 	 public NewProjectDTO update(
-			 @RequestParam(value= "id") long id,
+			 @RequestParam(value= "id") int id,
 			 @RequestParam(value="name") String name,
 				@RequestParam(value="link") String link,
 				@RequestParam(value="description") String description,

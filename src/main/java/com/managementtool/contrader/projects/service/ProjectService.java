@@ -1,6 +1,8 @@
 package com.managementtool.contrader.projects.service;
 
 
+import com.managementtool.contrader.projects.domain.Project;
+
 import com.managementtool.contrader.projects.dto.NewProjectDTO;
 
 
@@ -37,12 +39,14 @@ public interface ProjectService {
      * @param id the id of the entity
      * @return the entity
      */
-    NewProjectDTO findOne(Long id);
+  NewProjectDTO findOne(int id);
 
     /**
      * Delete the "id" project.
      *
      * @param id the id of the entity
      */
-    void delete(Long id);
+    void delete(int id);
+    
+    Project delete2(int id);
 }

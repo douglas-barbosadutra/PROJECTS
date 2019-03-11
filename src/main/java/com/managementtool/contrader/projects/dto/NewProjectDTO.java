@@ -5,6 +5,8 @@ import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,7 +17,7 @@ import com.managementtool.contrader.projects.domain.Task;
 
 
 public class NewProjectDTO implements Serializable {
-	private Long id;
+	private int id;
 	private File file;
 	private String name;
 	private String link;
@@ -29,6 +31,25 @@ public class NewProjectDTO implements Serializable {
 	private Set<Task> tasks;
 	private String status;
 
+	 public NewProjectDTO(int id, @NotNull String name, @NotNull float addedValue, @NotNull String description, @NotNull String link, @NotNull String status, ZonedDateTime endDate, ZonedDateTime nextCriticalDate ) {
+			super();
+			this.id = id;
+			this.name = name;
+			this.addedValue = addedValue;
+			this.description = description;
+			this.link = link;
+			this.status = status;
+			this.endDate = endDate;
+			this.nextCriticalDate = nextCriticalDate;
+			
+			
+		}
+
+
+
+		public NewProjectDTO() {
+		}
+	
 	public String getStatus() {
 		return status;
 	}
@@ -128,15 +149,15 @@ public class NewProjectDTO implements Serializable {
 		return this;
 	}
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public NewProjectDTO id(Long id) {
+	public NewProjectDTO id(int id) {
 		this.id = id;
 		return this;
 	}
@@ -194,7 +215,7 @@ public class NewProjectDTO implements Serializable {
             return false;
         }
         NewProjectDTO project = (NewProjectDTO) o;
-        if (project.getId() == null || getId() == null) {
+        if (project.getId() == 0 || getId() == 0) {
             return false;
         }
         return Objects.equals(getId(), project.getId());

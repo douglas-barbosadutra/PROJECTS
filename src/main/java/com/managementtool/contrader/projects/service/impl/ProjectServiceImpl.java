@@ -2,6 +2,7 @@ package com.managementtool.contrader.projects.service.impl;
 
 import com.managementtool.contrader.projects.service.ProjectService;
 import com.managementtool.contrader.projects.service.dto.mapper.NewProjectMapper;
+
 import com.managementtool.contrader.projects.domain.Project;
 import com.managementtool.contrader.projects.dto.NewProjectDTO;
 import com.managementtool.contrader.projects.repository.ProjectRepository;
@@ -51,14 +52,22 @@ public class ProjectServiceImpl implements ProjectService {
 
    @Override
     @Transactional(readOnly = true)
-    public  NewProjectDTO findOne(Long id) {
-	   NewProjectDTO projectDTO = NewProjectMapper.convertToDto(projectRepository.findById(id).get());
+    public  NewProjectDTO findOne(int id) {
+	   NewProjectDTO projectDTO = NewProjectMapper.convertToDto(projectRepository.findOne(id));
        return  projectDTO;
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(int id) {
        // log.debug("Request to delete Project : {}", id);
-        projectRepository.deleteById(id);
+    	Project project = projectRepository.findOne(id);
+    	this.projectRepository.delete(project);   
+       
+    }
+    @Override
+	public Project delete2(int id) {
+		Project deleted =projectRepository.findOne(id);
+		projectRepository.delete(deleted);
+		return deleted;
     }
 }
